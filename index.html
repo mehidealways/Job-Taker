@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind + DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+  <title>Job Tracker</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+  <header class="w-[80%] mx-auto my-10">
+    <h1 class="text-4xl font-bold text-blue-900 mb-10">Job Application Tracker</h1>
+
+    <div class="flex gap-5">
+      <div class="bg-white p-5 shadow rounded w-1/3">
+        <p>Total</p>
+        <p id="total">0</p>
+      </div>
+
+      <div class="bg-white p-5 shadow rounded w-1/3">
+        <p>Interview</p>
+        <p id="total-interview" class="text-green-500">0</p>
+      </div>
+
+      <div class="bg-white p-5 shadow rounded w-1/3">
+        <p>Rejected</p>
+        <p id="total-rejected" class="text-red-500">0</p>
+      </div>
+    </div>
+  </header>
+
+  <hr class="w-[80%] mx-auto my-10 border-gray-300">
+
+  <main>
+
+    <!-- Filter Buttons -->
+    <div class="w-[80%] mx-auto mb-10">
+      <button onclick="toggleFilter('all')" id="all-btn" class="btn bg-blue-500 text-white">All</button>
+      <button onclick="toggleFilter('interview')" id="interview-btn" class="btn">Interview</button>
+      <button onclick="toggleFilter('rejected')" id="rejected-btn" class="btn">Rejected</button>
+    </div>
+    <!-- Filter Section -->
+    <section id="filter-section" class="space-y-5 hidden">
+
+    </section>
+
+    <!-- All Jobs -->
+    <section id="parent-card" class="space-y-5">
+
+      <div class="job-card w-[80%] mx-auto border border-gray-300 p-6 rounded shadow bg-white">
+        <div class=" flex justify-between ">
+          <div class="content space-y-5">
+                <h2 class="job-name text-2xl font-bold">Mobile First Corp</h2>
+                <p class="job-title text-gray-500">React Native Developer</p>
+                <p class="project-budget text-gray-500">Remote•Full-time• $130,000 - $175,000</p>
+                <p class="job-tools text-gray-500">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+          </div>
+          <!-- Right -->
+        <div class="">
+        <button class="border border-gray-300 rounded-full p-2"><i class="fa-solid fa-trash text-gray-600"></i></button>
+        </div>
+      </div>
+
+        <!-- Buttons -->
+        <div class="mt-4">
+          <button class="interview-btn btn btn-outline btn-success mr-3">INTERVIEW</button>
+          <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+        </div>
+
+      </div>
+      <!-- Jos 2 -->
+      <div class="job-card w-[80%] mx-auto border border-gray-300 p-6 rounded shadow bg-white">
+        <div class=" flex justify-between ">
+          <div class="content space-y-5">
+                <h2 class="job-name text-2xl font-bold">WebFlow Agency</h2>
+                <p class="job-title text-gray-500">Web Designer & Developer</p>
+                <p class="project-budget text-gray-500">Los Angeles, CA•Part-time•$80,000 - $120,0000</p>
+                <p class="job-tools text-gray-500">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design
+                trends.</p>
+          </div>
+          <!-- Right -->
+        <div class="">
+        <button class="border border-gray-300 rounded-full p-2"><i class="fa-solid fa-trash text-gray-600"></i></button>
+        </div>
+      </div>
+
+        <!-- Buttons -->
+        <div class="mt-4">
+          <button class="interview-btn btn btn-outline btn-success mr-3">INTERVIEW</button>
+          <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
+        </div>
+
+      </div>
+     
+          
+          
+      
+
+    </section>
+
+  </main>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
