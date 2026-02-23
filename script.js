@@ -13,7 +13,6 @@ const interviewBtn = document.getElementById('interview-btn');
 const rejectedBtn = document.getElementById('rejected-btn');
 const successBtn = document.getElementById('success-bage-btn');
 
-// Count Update
 function updateCount() {
   total.innerText = parentCard.querySelectorAll('.job-card').length;
   totalInterview.innerText = interviewList.length;
@@ -87,7 +86,6 @@ document.addEventListener('click', function (event) {
   }
 });
 
-// Render Interview
 function renderInterview() {
   filterSection.innerHTML = '';
   interviewList.forEach(job => {
@@ -104,8 +102,6 @@ function renderRejected() {
 }
 
 
-
-// Create Card
 function createCard(job) {
   return `
   <div class="job-card w-[80%] mx-auto border border-gray-300 p-7 flex justify-between rounded-md bg-white shadow">
