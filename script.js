@@ -11,6 +11,7 @@ const filterSection = document.getElementById('filter-section');
 const allBtn = document.getElementById('all-btn');
 const interviewBtn = document.getElementById('interview-btn');
 const rejectedBtn = document.getElementById('rejected-btn');
+const successBtn = document.getElementById('success-bage-btn');
 
 // Count Update
 function updateCount() {
@@ -21,35 +22,35 @@ function updateCount() {
 updateCount();
 
 // Filter Toggle
-function toggleFilter(type) {
+function toggleFilter(id) {
   allBtn.classList.remove('bg-blue-500', 'text-white');
   interviewBtn.classList.remove('bg-blue-500', 'text-white');
   rejectedBtn.classList.remove('bg-blue-500', 'text-white');
 
-  if (type === 'all') {
+  if (id === 'all') {
     parentCard.classList.remove('hidden');
     filterSection.classList.add('hidden');
     allBtn.classList.add('bg-blue-500', 'text-white');
   }
 
-  if (type === 'interview') {
+  if (id === 'interview') {
     parentCard.classList.add('hidden');
     filterSection.classList.remove('hidden');
     interviewBtn.classList.add('bg-blue-500', 'text-white');
     renderInterview();
   }
 
-  if (type === 'rejected') {
+  if (id === 'rejected') {
     parentCard.classList.add('hidden');
     filterSection.classList.remove('hidden');
     rejectedBtn.classList.add('bg-blue-500', 'text-white');
     renderRejected();
   }
 }
-
+ 
 // Event Delegation
-document.addEventListener('click', function (e) {
-  const card = e.target.closest('.job-card');
+document.addEventListener('click', function (event) {
+  const card = event.target.closest('.job-card');
   if (!card) return;
 
   const job = {
@@ -60,7 +61,7 @@ document.addEventListener('click', function (e) {
   };
 
   // Interview
-  if (e.target.classList.contains('interview-btn')) {
+  if (event.target.classList.contains('interview-btn')) {
     if (!interviewList.find(j => j.jobName === job.jobName)) {
       interviewList.push(job);
       rejectedList = rejectedList.filter(j => j.jobName !== job.jobName);
@@ -69,7 +70,7 @@ document.addEventListener('click', function (e) {
   }
 
   // Rejected
-  if (e.target.classList.contains('rejected-btn')) {
+  if (event.target.classList.contains('rejected-btn')) {
     if (!rejectedList.find(j => j.jobName === job.jobName)) {
       rejectedList.push(job);
       interviewList = interviewList.filter(j => j.jobName !== job.jobName);
@@ -78,7 +79,7 @@ document.addEventListener('click', function (e) {
   }
 
   // Delete
-  if (e.target.closest('.delete-btn')) {
+  if (event.target.closest('.delete-btn')) {
     interviewList = interviewList.filter(j => j.jobName !== job.jobName);
     rejectedList = rejectedList.filter(j => j.jobName !== job.jobName);
     card.remove();
@@ -102,6 +103,8 @@ function renderRejected() {
   });
 }
 
+
+
 // Create Card
 function createCard(job) {
   return `
@@ -116,7 +119,7 @@ function createCard(job) {
       <p class="job-title text-gray-500">
         ${job.jobTitle}
       </p>
-
+       <button id="success-bage-btn" class =" btn btn-outline btn-success">Success</button>
       <p class="project-budget text-gray-500">
         ${job.jobBudget}
       </p>
