@@ -119,7 +119,7 @@ function createCard(job) {
       <p class="job-title text-gray-500">
         ${job.jobTitle}
       </p>
-       <button id="success-bage-btn" class =" btn btn-outline btn-success">Success</button>
+       <button id="success-bage-btn" class ="btn  btn-outline btn-success">Interview</button>
       <p class="project-budget text-gray-500">
         ${job.jobBudget}
       </p>
